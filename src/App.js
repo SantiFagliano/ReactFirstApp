@@ -1,8 +1,16 @@
 import "./App.css";
 
+function Helloword() {
+  return <div className="hello">Hello word</div>;
+}
+
 function App() {
   return (
-    <div>Hello Word</div>
+    <div>
+      This is my component: <Helloword></Helloword>
+      <Helloword> </Helloword>
+      <Helloword> </Helloword>
+    </div>
   );
 }
 
