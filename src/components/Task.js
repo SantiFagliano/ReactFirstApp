@@ -14,15 +14,23 @@ class Task extends Component {
     const { task } = this.props;
 
     return (
-      <div>
-        <p style={this.styleCompleted()}>
+      <ul>
+        <li style={this.styleCompleted()}>
           {task.title} -{task.description} -{task.done} -{task.id}
-          <input type="checkbox" className="form-check-input m-2"></input>
-          <button className="btn btn-primary" style={btnDelete}>
+          <input
+            type="checkbox"
+            className="form-check-input m-2"
+            onChange={this.props.checkDone.bind(this, task.id)}
+          />
+          <button
+            className="btn btn-primary"
+            style={btnDelete}
+            onClick={this.props.deleteTask.bind(this, task.id)}
+          >
             x
           </button>
-        </p>
-      </div>
+        </li>
+      </ul>
     );
   }
 }

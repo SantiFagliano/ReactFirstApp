@@ -11,21 +11,45 @@ class App extends Component {
   state = {
     tasks: tasks,
   };
+
   addTask = (title, description) => {
-    const newTask={
+    const newTask = {
       title: title,
       description: description,
-      id: this.state.tasks.length
-    }
+      id: this.state.tasks.length,
+    };
     this.setState({
-      tasks:[...this.state.tasks, newTask]
-    })
+      tasks: [...this.state.tasks, newTask],
+    });
   };
+
+  deleteTask = (id) => {
+    const newTasks = this.state.tasks.filter((task) => task.id !== id);
+    this.setState({ tasks: newTasks });
+  };
+
+  checkDone = (id) => {
+    const newTasks = this.state.tasks.map((task) => {
+      if (task.id === id) {
+        task.done = !task.done;
+      }
+      return task;
+    });
+    this.setState({ tasks: newTasks });
+  };
+
   render() {
     return (
-      <div className="container-fluid p-2 ">
-        <TaskForm addTask={this.addTask} />
-        <Tasks tasks={this.state.tasks} />
+      <div className="container p-2 ">
+        <div>
+          <h2>Bienvenido a mi primera pagina con React</h2>
+          <hr />
+          <TaskForm addTask={this.addTask} />
+        </div>
+        <div className="p-4">
+          <h4 className="text-success">Lista de tareas</h4>
+          <Tasks tasks={this.state.tasks} deleteTask={this.deleteTask} checkDone={this.checkDone}/>
+        </div>
       </div>
     );
   }

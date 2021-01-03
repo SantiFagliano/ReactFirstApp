@@ -20,27 +20,28 @@ export default class TaskForm extends Component {
     render() {
         return (
         <form onSubmit={this.onSubmit}>
+            <h3 className="text-center text-primary">Agrege una nueva tarea!</h3>
             <input
                 type="text"
                 name="title"
-                placeholder="Write a task"
-                className="form-control"
+                placeholder="Esccriba una tarea"
+                className="form-control border-primary"
                 onChange={this.onChange}
                 value={this.state.title}
             />
             <br />
             <textarea
                 name="description"
-                placeholder="escriba una descripcion"
-                className="form-control"
+                placeholder="Escriba una descripcion"
+                className="form-control border-primary"
                 onChange={this.onChange}
                 value={this.state.description}
             ></textarea>
             <br />
             <input
                 type="submit"
-                className="btn btn-primary"
-                value="Submit!"
+                className="btn btn-outline-primary"
+                value="Crear Nueva Tarea!"
             />
         </form>
         );
