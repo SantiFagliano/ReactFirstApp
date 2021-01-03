@@ -15,6 +15,6 @@
         "id":2,
         "title": "Task three",
         "description":"lorem ipsum",
-        "done":false
+        "done":true
     }
 ]

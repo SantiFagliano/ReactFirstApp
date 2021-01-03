@@ -12,7 +12,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container p-2 bg-secondary">
+      <div className="container-fluid p-2 ">
         <Tasks tasks={this.state.tasks} />
       </div>
     );
